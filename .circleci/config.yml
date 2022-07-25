@@ -60,13 +60,16 @@ jobs:
       - aws-cli/setup
       - checkout
       - run:
-          name: Deploy App
+          name: Deploy
           # TODO: Install, build, deploy in both apps
           command: |
-            echo "# TODO: Install, build, deploy in both apps"
+            echo "# TODO: Init eb"
             eb init udagram-env --platform node.js --region us-east-1
+            echo "# TODO: Run the deploy script"
             npm run deploy
+            echo "# TODO: Select enviornment"
             eb use udagram-env
+            echo "# TODO: Set enviornment variables"
             eb setenv POSTGRES_HOST=$POSTGRES_HOST DB_PORT=$DB_PORT PORT=$PORT POSTGRES_PASSWORD=$POSTGRES_PASSWORD POSTGRES_USERNAME=$POSTGRES_USERNAME RDS_DIALECT=$RDS_DIALECT POSTGRES_DB=$POSTGRES_DB AWS_REGION=$AWS_REGION AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY JWT_SECRET=$JWT_SECRET
             
 workflows:
